@@ -1,0 +1,18 @@
+{
+  "name": "node-cec",
+  "version": "0.0.0",
+  "description": "HDMI CEC Client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@mieris.com:projects/node-cec"
+  },
+  "keywords": [
+    "cec"
+  ],
+  "author": "Bas van der Heijden <info@citroenboom.com>",
+  "license": "BSD"
+}
