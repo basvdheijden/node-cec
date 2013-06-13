@@ -1,7 +1,6 @@
 var Stream = require('stream'),
   Event = require('events').EventEmitter,
-  exec = require('child_process').exec,
-
+  exec = require('child_process').exec;
 
 var CEC = function(inputStream) {
   var self = this;
