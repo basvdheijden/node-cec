@@ -1,6 +1,6 @@
 {
   "name": "node-cec",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "HDMI CEC Client",
   "main": "index.js",
   "scripts": {

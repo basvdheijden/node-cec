@@ -6,7 +6,7 @@ var CEC = function(inputStream) {
   var self = this;
 
   if (!inputStream) {
-    var child = exec('cec-client');
+    var child = exec('cec-client -o "Mieris.com"');
     inputStream = child.stdout;
   }
 
