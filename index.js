@@ -22,7 +22,7 @@ var CEC = function(inputStream) {
   this.stream.write = function(buffer) {
     debug('Data written to CEC stream');
     var data = buffer.toString();
-    var matches = data.match(/key pressed: ([^\s]+)/);
+    var matches = data.match(/key pressed: (.+)\s\(/);
     if (matches && matches.length > 1) {
       debug('Emitting key event: %s', matches[1]);
       self.event.emit('key', matches[1]);
