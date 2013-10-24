@@ -1,12 +1,14 @@
 var Stream = require('stream'),
+  debug = require('debug')('cec'),
   Event = require('events').EventEmitter,
-  exec = require('child_process').exec;
+  spawn = require('child_process').spawn;
 
 var CEC = function(inputStream) {
+  debug('Spawning new CEC instance...');
   var self = this;
 
   if (!inputStream) {
-    var child = exec('cec-client -o "Mieris.com"');
+    var child = spawn('cec-client', ['-o', '"Mieris.com"']);
     inputStream = child.stdout;
   }
 
@@ -18,14 +20,17 @@ var CEC = function(inputStream) {
   this.event = new Event();
 
   this.stream.write = function(buffer) {
+    debug('Data written to CEC stream');
     var data = buffer.toString();
     var matches = data.match(/key pressed: ([^\s]+)/);
     if (matches && matches.length > 1) {
+      debug('Emitting key event: %s', matches[1]);
       self.event.emit('key', matches[1]);
     }
   };
 
   this.stream.end = function(buffer) {
+    debug('Ending CEC stream..');
     if (buffer) {
       this.write(buffer);
     }
